@@ -8,9 +8,9 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
-  constructor(private auth: AuthService) { }
+  constructor(private authService: AuthService) { }
 
-  login() {
-    this.auth.login();
+  login() : void {
+    this.authService.login();
   }
 }

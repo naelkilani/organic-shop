@@ -13,11 +13,11 @@ export class AuthService {
     this.user$ = angularFireAuth.authState;
   }
 
-  login() {
+  login() : void {
     this.angularFireAuth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
   }
 
-  logout() {
+  logout() : void {
     this.angularFireAuth.signOut();
   }
 }

@@ -9,11 +9,11 @@ import { Component } from '@angular/core';
 export class NavbarComponent {
   user$: any;
 
-  constructor(private auth: AuthService) { 
-    this.user$ = auth.user$;
+  constructor(private authService: AuthService) { 
+    this.user$ = authService.user$;
   }
 
-  logout() {
-    this.auth.logout();
+  logout() : void {
+    this.authService.logout();
   }
 }
