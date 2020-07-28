@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
 import { Category } from 'src/app/models/category';
 import { map } from 'rxjs/operators';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-form',
@@ -16,7 +17,8 @@ export class ProductFormComponent {
 
   constructor(
     private categoriesService: CategoriesService,
-    private productsService: ProductsService) {
+    private productsService: ProductsService,
+    private router: Router) {
 
     this.categories$ = this.categoriesService.getCategories()
     .snapshotChanges()
@@ -25,6 +27,7 @@ export class ProductFormComponent {
    }
 
    save(f: NgForm) {
-    this.productsService.create(f.value);
+    this.productsService.create(f.value)
+    .then((ref) => this.router.navigate(['/admin/products']));
    }
 }
