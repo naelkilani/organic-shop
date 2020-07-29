@@ -14,7 +14,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./product-form.component.css']
 })
 export class ProductFormComponent {
-  product: any = {};
+  product: Product = {} as Product;
   categories$: Observable<Category[]>;
   id: string;
 
@@ -57,6 +57,14 @@ export class ProductFormComponent {
     else
       this.productsService.create(f.value);
 
+    this.router.navigate(['/admin/products']);
+   }
+
+   delete() {
+    if (!confirm('Are you sure you want to delete this product?')) 
+      return;
+    console.log(this.product.key);
+    this.productsService.delete(this.product.key);
     this.router.navigate(['/admin/products']);
    }
 }

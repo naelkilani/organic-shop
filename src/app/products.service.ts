@@ -29,4 +29,8 @@ export class ProductsService {
   update(key: string, product: Product) : Promise<void>{
     return this.db.object<Product>(`${this.dbPath}/${key}`).update(product);
   }
+  
+  delete(key: string) : Promise<void> {
+    return this.db.object<Product>(`${this.dbPath}/${key}`).remove();
+  }
 }
