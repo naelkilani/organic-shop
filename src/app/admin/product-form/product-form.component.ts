@@ -27,12 +27,12 @@ export class ProductFormComponent {
     this.init();
    }
 
-   init() {
+   private init() {
     this.getProductOnEdit();
     this.getCategories();
    }
 
-   getProductOnEdit() {
+   private getProductOnEdit() {
       this.id = this.activatedRoute.snapshot.paramMap.get('id');
 
       if (!this.id)
@@ -45,7 +45,7 @@ export class ProductFormComponent {
       .subscribe(p => this.product = p);
    } 
 
-   getCategories() {
+   private getCategories() {
     this.categories$ = this.categoriesService.getCategories()
     .snapshotChanges()
     .pipe(map(scs => scs.map(sc => ({ key: sc.key, ...sc.payload.val() }))));
@@ -63,7 +63,7 @@ export class ProductFormComponent {
    delete() {
     if (!confirm('Are you sure you want to delete this product?')) 
       return;
-    console.log(this.product.key);
+      
     this.productsService.delete(this.product.key);
     this.router.navigate(['/admin/products']);
    }
