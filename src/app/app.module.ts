@@ -21,7 +21,8 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
 import { LoginComponent } from './login/login.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component'
 import { FormsModule } from '@angular/forms';
-import { CustomFormsModule } from 'ng2-validation'
+import { CustomFormsModule } from 'ng2-validation';
+import { TableModule } from 'ngx-easy-table';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { CustomFormsModule } from 'ng2-validation'
     AngularFireDatabaseModule,
     NgbModule,
     FormsModule,
-    CustomFormsModule
+    CustomFormsModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
