@@ -13,6 +13,9 @@
           <div *ngIf="(i+1) % 2 === 0" class="w-100"></div>
         </ng-container>
       </div>
+      <div *ngIf="(products$ | async)?.length === 0" class="alert alert-info" role="alert">
+        No Products Found!
+      </div>
     </div>
   
   </div>
