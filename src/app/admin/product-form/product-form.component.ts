@@ -46,7 +46,7 @@ export class ProductFormComponent {
    } 
 
    private getCategories() {
-    this.categories$ = this.categoriesService.getCategories()
+    this.categories$ = this.categoriesService.getAll()
     .snapshotChanges()
     .pipe(map(scs => scs.map(sc => ({ key: sc.key, ...sc.payload.val() }))));
    }
