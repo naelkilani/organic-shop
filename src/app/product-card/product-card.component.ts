@@ -1,3 +1,4 @@
+import { CartLine } from './../models/cartLine';
 import { CartService } from './../cart.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../models/product';
@@ -19,7 +20,11 @@ export class ProductCardComponent {
     this.cartService.addToCart(this.product);
   }
 
-  getQuantity(): number {    
-    return this.cart?.cartLines[this.product.key]?.quantity || 0;
+  getQuantity(): number {  
+    if (!this.cart?.cartLines)
+      return 0;
+    
+    let cartLine: CartLine = this.cart.cartLines[this.product.key];
+    return cartLine ? cartLine.quantity : 0;
   }
 }
