@@ -19,7 +19,15 @@ export class CartService {
     return this.db.object<Cart>(`${this.dbPath}/${cartId}`);
   }
 
-  async addToCart(product: Product): Promise<void>{
+  async addToCart(product: Product): Promise<void> {
+    return this.updateQuantity(product, 1);
+  }
+
+  async removeFromCart(product: Product): Promise<void> {
+    return this.updateQuantity(product, -1);
+  }
+
+  private async updateQuantity(product: Product, change: number) : Promise<void> {
     let cartId = await this.getOrCreateCartId();
     let cartLine$ = this.getCartLine(cartId, product.key);
 
@@ -29,7 +37,7 @@ export class CartService {
     .pipe(map(scl => ({ key: scl.key, ...scl.payload.val() })))
     .subscribe(cl => cartLine$.update({
        product: product,
-       quantity: (cl.quantity || 0) + 1 }));
+       quantity: (cl.quantity || 0) + change }));
   }
 
   private async getOrCreateCartId() : Promise<string> {
