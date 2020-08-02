@@ -1,8 +1,10 @@
+import { Cart } from './../models/cart';
+import { CartService } from './../cart.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from './../products.service';
 import { map, switchMap } from 'rxjs/operators';
-import { Observable, of } from 'rxjs';
-import { Component } from '@angular/core';
+import { Observable, of, Subscription } from 'rxjs';
+import { Component, OnDestroy } from '@angular/core';
 import { Product } from '../models/product';
 
 @Component({
@@ -10,13 +12,17 @@ import { Product } from '../models/product';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent {
+export class ProductsComponent implements OnDestroy {
   products$: Observable<Product[]>;
+  cart: Cart;
+  cartSubscription: Subscription;
 
   constructor(
     private productsService: ProductsService,
+    private cartService: CartService,
     private route: ActivatedRoute) {
     this.getProducts();
+    this.getCart();
    }
 
   private getProducts() : void {
@@ -36,5 +42,16 @@ export class ProductsComponent {
       .snapshotChanges()
       .pipe(map(sps => sps.map(sp => ({ key: sp.key, ...sp.payload.val() }))));
     }));
+  }
+
+  private async getCart() {
+    this.cartSubscription = (await this.cartService.getCart())
+    .snapshotChanges()
+    .pipe(map(sc => ({ key: sc.key, ...sc.payload.val() })))
+    .subscribe(c => this.cart = c);
+  }
+
+  ngOnDestroy(): void {
+    this.cartSubscription.unsubscribe();
   }
 }
