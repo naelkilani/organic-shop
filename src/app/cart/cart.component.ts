@@ -1,4 +1,8 @@
+import { CartService } from './../cart.service';
 import { Component, OnInit } from '@angular/core';
+import { Cart } from '../models/cart';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'cart',
@@ -6,10 +10,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+  cart$: Observable<Cart>;
 
-  constructor() { }
+  constructor(private cartService: CartService) { }
 
-  ngOnInit(): void {
-  }
-
+  async ngOnInit(): Promise<void> {
+    this.cart$ = (await this.cartService.getCart())
+    .snapshotChanges()
+    .pipe(map(sc => new Cart(sc.key, sc.payload.val().cartLines, sc.payload.val().createdOn)));  }
 }
