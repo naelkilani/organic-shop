@@ -17,5 +17,10 @@ export class CartComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.cart$ = (await this.cartService.getCart())
     .snapshotChanges()
-    .pipe(map(sc => new Cart(sc.key, sc.payload.val().cartLines, sc.payload.val().createdOn)));  }
+    .pipe(map(sc => new Cart(sc.key, sc.payload.val().cartLines, sc.payload.val().createdOn))); 
+  }
+
+  clearCart() {
+    this.cartService.clearCart();
+  }
 }
