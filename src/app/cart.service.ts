@@ -40,7 +40,10 @@ export class CartService {
     .pipe(take(1))
     .pipe(map(scl => ({ key: scl.key, ...scl.payload.val() })))
     .subscribe(cl => {
-      return this.updateCartLine(cartLine$,{
+      if (cl.quantity + change === 0)
+        return this.removeCartLine(cartLine$);
+
+      return this.updateCartLine(cartLine$, {
         title: product.title,
         price: product.price,
         imageUrl: product.imageUrl,
@@ -63,18 +66,23 @@ export class CartService {
 
   private create()
     : firebase.database.ThenableReference {
-    return this.db.list(this.dbPath).push({
-      createdOn: new Date().toLocaleDateString()
-    });
+      return this.db.list(this.dbPath).push({
+        createdOn: new Date().toLocaleDateString()
+      });
   }
 
   private getCartLine(cartId: string, productId: string)
     : AngularFireObject<CartLine> {
-    return this.db.object<CartLine>(`${this.dbPath}/${cartId}/cartLines/${productId}`);
+      return this.db.object<CartLine>(`${this.dbPath}/${cartId}/cartLines/${productId}`);
   }
 
   private updateCartLine(cartLine$: AngularFireObject<CartLine>, cartLine: any)
     : Promise<void> {
-    return cartLine$.update(cartLine);
+      return cartLine$.update(cartLine);
+  }
+
+  private removeCartLine(cartLine$: AngularFireObject<CartLine>)
+  : Promise<void> {
+    return cartLine$.remove();
   }
 }
