@@ -14,20 +14,24 @@ export class CartService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  async getCart(): Promise<AngularFireObject<Cart>> {
+  async getCart()
+    : Promise<AngularFireObject<Cart>> {
     let cartId = await this.getOrCreateCartId();
     return this.db.object<Cart>(`${this.dbPath}/${cartId}`);
   }
 
-  async addToCart(product: Product): Promise<void> {
+  async addToCart(product: Product)
+    : Promise<void> {
     return this.updateQuantity(product, 1);
   }
 
-  async removeFromCart(product: Product): Promise<void> {
+  async removeFromCart(product: Product)
+    : Promise<void> {
     return this.updateQuantity(product, -1);
   }
 
-  private async updateQuantity(product: Product, change: number) : Promise<void> {
+  private async updateQuantity(product: Product, change: number)
+    : Promise<void> {
     let cartId = await this.getOrCreateCartId();
     let cartLine$ = this.getCartLine(cartId, product.key);
 
@@ -35,14 +39,17 @@ export class CartService {
     .snapshotChanges()
     .pipe(take(1))
     .pipe(map(scl => ({ key: scl.key, ...scl.payload.val() })))
-    .subscribe(cl => cartLine$.update({
-       title: product.title,
-       price: product.price,
-       imageUrl: product.imageUrl,
-       quantity: (cl.quantity || 0) + change }));
+    .subscribe(cl => {
+      return this.updateCartLine(cartLine$,{
+        title: product.title,
+        price: product.price,
+        imageUrl: product.imageUrl,
+        quantity: (cl.quantity || 0) + change });
+      });
   }
 
-  private async getOrCreateCartId() : Promise<string> {
+  private async getOrCreateCartId()
+    : Promise<string> {
     let cartId = localStorage.getItem('cartId');
 
     if (cartId) 
@@ -54,13 +61,20 @@ export class CartService {
     return cart.key;
   }
 
-  private create(): firebase.database.ThenableReference {
+  private create()
+    : firebase.database.ThenableReference {
     return this.db.list(this.dbPath).push({
       createdOn: new Date().toLocaleDateString()
     });
   }
 
-  private getCartLine(cartId: string, productId: string) : AngularFireObject<CartLine> {
+  private getCartLine(cartId: string, productId: string)
+    : AngularFireObject<CartLine> {
     return this.db.object<CartLine>(`${this.dbPath}/${cartId}/cartLines/${productId}`);
+  }
+
+  private updateCartLine(cartLine$: AngularFireObject<CartLine>, cartLine: any)
+    : Promise<void> {
+    return cartLine$.update(cartLine);
   }
 }

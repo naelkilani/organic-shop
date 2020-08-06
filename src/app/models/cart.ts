@@ -11,8 +11,7 @@ export class Cart {
           for (let productId in this.cartLines) {
             this.items.push(this.cartLines[productId]);
           }
-
-        }
+    }
 
     get itemsCount() : number {
       let count = 0;
