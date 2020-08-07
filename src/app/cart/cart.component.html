@@ -29,7 +29,7 @@
             <th class="text-right">{{ cart.totalPrice | currency:'USD':true }}</th>
         </tfoot>
       </table>
-      <button
+      <button *ngIf="cart.itemsCount > 0"
         (click)="clearCart()"
         class="btn btn-danger btn-sm">Clear Shopping Cart</button>
 </div>
