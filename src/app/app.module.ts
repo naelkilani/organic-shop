@@ -26,6 +26,8 @@ import { TableModule } from 'ngx-easy-table';
 import { ProductsFilterComponent } from './products/products-filter/products-filter.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
+import { ShippingFormComponent } from './shipping-form/shipping-form.component';
+import { CartSummaryComponent } from './cart-summary/cart-summary.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { ProductQuantityComponent } from './product-quantity/product-quantity.co
     ProductFormComponent,
     ProductsFilterComponent,
     ProductCardComponent,
-    ProductQuantityComponent
+    ProductQuantityComponent,
+    ShippingFormComponent,
+    CartSummaryComponent
   ],
   imports: [
     BrowserModule,
