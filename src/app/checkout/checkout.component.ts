@@ -17,8 +17,8 @@ import * as firebase from 'firebase';
 })
 export class CheckoutComponent implements OnInit, OnDestroy {
   public shipping: Shipping = {} as Shipping;
-
-  private cart: Cart;
+  public cart: Cart;
+  
   private user: firebase.User;
   private cartSubscription: Subscription;
   private userSubscription: Subscription;
