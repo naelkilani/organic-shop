@@ -3,7 +3,8 @@ import { Shipping } from './shipping';
 import { OrderLine } from './orderLine';
 
 export class Order {
-    createdOn = new Date().toLocaleDateString();
+    key: string;
+    createdOn = new Date().getTime();
     orderLines: OrderLine[];
     cartId: string;
 

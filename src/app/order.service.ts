@@ -1,5 +1,5 @@
 import { CartService } from './cart.service';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Injectable } from '@angular/core';
 import { Order } from './models/order';
 import * as firebase from 'firebase';
@@ -17,5 +17,15 @@ export class OrderService {
     this.cartService.unassignCart();
     
     return result;
+  }
+
+  getAll() : AngularFireList<Order> {
+    return this.db.list<Order>(this.dbPath);
+  }
+
+  getByUser(userId: string) : AngularFireList<Order> {
+    return this.db.list<Order>(this.dbPath, ref => {
+      return ref.orderByChild('userId').equalTo(userId);
+    });
   }
 }
