@@ -1,7 +1,7 @@
-import { Product } from '../../shared/models/product';
-import { ProductsService } from '../../shared/services/products.service';
+import { Product } from '../../../shared/models/product';
+import { ProductsService } from '../../../shared/services/products.service';
 import { Observable } from 'rxjs';
-import { CategoriesService } from '../../shared/services/categories.service';
+import { CategoriesService } from '../../../shared/services/categories.service';
 import { Component } from '@angular/core';
 import { Category } from '@shared/models/category';
 import { map, take } from 'rxjs/operators';

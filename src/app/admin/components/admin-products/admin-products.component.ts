@@ -1,6 +1,6 @@
-import { Product } from '../../shared/models/product';
+import { Product } from '../../../shared/models/product';
 import { map } from 'rxjs/operators';
-import { ProductsService } from '../../shared/services/products.service';
+import { ProductsService } from '../../../shared/services/products.service';
 import { Component, OnDestroy, ViewChild, TemplateRef, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Columns, Config, DefaultConfig } from 'ngx-easy-table';

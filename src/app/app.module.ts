@@ -4,13 +4,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CustomFormsModule } from 'ng2-validation';
-import { TableModule } from 'ngx-easy-table';
 
 import { environment } from './../environments/environment';
-import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
-import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
-import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { AdminModule } from './admin/admin.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CartSummaryComponent } from './cart-summary/cart-summary.component';
@@ -36,10 +32,7 @@ import { ShippingFormComponent } from './shipping-form/shipping-form.component';
     CheckoutComponent,
     OrderSuccessComponent,
     MyOrdersComponent,
-    AdminProductsComponent,
-    AdminOrdersComponent,
     LoginComponent,
-    ProductFormComponent,
     ProductsFilterComponent,
     ShippingFormComponent,
     CartSummaryComponent
@@ -51,9 +44,8 @@ import { ShippingFormComponent } from './shipping-form/shipping-form.component';
     AngularFireDatabaseModule,
     NgbModule,
     FormsModule,
-    CustomFormsModule,
-    TableModule,
-    SharedModule
+    SharedModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,9 +1,9 @@
-import { ProductFormComponent } from './admin/product-form/product-form.component';
-import { AdminAuthGuard } from './admin-auth-guard.service';
+import { ProductFormComponent } from './admin/components/product-form/product-form.component';
+import { AdminAuthGuard } from './admin/services/admin-auth-guard.service';
 import { AuthGuard } from './shared/services/auth-guard.service';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
-import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
-import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
+import { AdminOrdersComponent } from './admin/components/admin-orders/admin-orders.component';
+import { AdminProductsComponent } from './admin/components/admin-products/admin-products.component';
 import { LoginComponent } from './login/login.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
 import { CheckoutComponent } from './checkout/checkout.component';
