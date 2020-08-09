@@ -24,8 +24,8 @@ import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation';
 import { TableModule } from 'ngx-easy-table';
 import { ProductsFilterComponent } from './products/products-filter/products-filter.component';
-import { ProductCardComponent } from './product-card/product-card.component';
-import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
+import { ProductCardComponent } from './shared/components/product-card/product-card.component';
+import { ProductQuantityComponent } from './shared/components/product-quantity/product-quantity.component';
 import { ShippingFormComponent } from './shipping-form/shipping-form.component';
 import { CartSummaryComponent } from './cart-summary/cart-summary.component';
 
