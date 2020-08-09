@@ -1,9 +1,9 @@
-import { Product } from './../../models/product';
+import { Product } from '../../shared/models/product';
 import { ProductsService } from './../../products.service';
 import { Observable } from 'rxjs';
 import { CategoriesService } from './../../categories.service';
 import { Component } from '@angular/core';
-import { Category } from 'src/app/models/category';
+import { Category } from '@shared/models/category';
 import { map, take } from 'rxjs/operators';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';

@@ -1,11 +1,11 @@
-import { Cart } from './../models/cart';
+import { Cart } from '../shared/models/cart';
 import { CartService } from './../cart.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from './../products.service';
 import { map, switchMap } from 'rxjs/operators';
 import { Observable, of, Subscription } from 'rxjs';
 import { Component } from '@angular/core';
-import { Product } from '../models/product';
+import { Product } from '../shared/models/product';
 
 @Component({
   selector: 'products',

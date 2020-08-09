@@ -1,10 +1,10 @@
-import { CartLine } from './models/cartLine';
+import { CartLine } from './shared/models/cartLine';
 import { AngularFireDatabase, AngularFireObject, AngularFireList } from '@angular/fire/database';
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
-import { Product } from './models/product';
+import { Product } from './shared/models/product';
 import { take, map } from 'rxjs/operators';
-import { Cart } from './models/cart';
+import { Cart } from './shared/models/cart';
 
 @Injectable({
   providedIn: 'root'

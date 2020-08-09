@@ -1,4 +1,4 @@
-import { Product } from './../../models/product';
+import { Product } from '../../shared/models/product';
 import { map } from 'rxjs/operators';
 import { ProductsService } from './../../products.service';
 import { Component, OnDestroy, ViewChild, TemplateRef, OnInit } from '@angular/core';

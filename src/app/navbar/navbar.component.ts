@@ -1,9 +1,9 @@
 import { CartService } from './../cart.service';
 import { Observable } from 'rxjs';
-import { AppUser } from './../models/appUser';
+import { AppUser } from '../shared/models/appUser';
 import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
-import { Cart } from '../models/cart';
+import { Cart } from '../shared/models/cart';
 import { map } from 'rxjs/operators';
 
 @Component({

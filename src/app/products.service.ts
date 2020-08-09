@@ -1,4 +1,4 @@
-import { Product } from './models/product';
+import { Product } from './shared/models/product';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';

@@ -1,8 +1,8 @@
-import { CartLine } from './../models/cartLine';
+import { CartLine } from '../shared/models/cartLine';
 import { CartService } from './../cart.service';
 import { Component, OnInit, Input } from '@angular/core';
-import { Product } from '../models/product';
-import { Cart } from '../models/cart';
+import { Product } from '../shared/models/product';
+import { Cart } from '../shared/models/cart';
 
 @Component({
   selector: 'product-card',
