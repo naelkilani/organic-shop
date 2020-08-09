@@ -1,33 +1,30 @@
-import { environment } from './../environments/environment';
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { CartComponent } from './cart/cart.component';
-
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
-
-import { AngularFireModule } from '@angular/fire'
+import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { NavbarComponent } from './navbar/navbar.component';
-import { ProductsComponent } from './products/products.component';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { OrderSuccessComponent } from './order-success/order-success.component';
-import { MyOrdersComponent } from './my-orders/my-orders.component';
-import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
-import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
-import { LoginComponent } from './login/login.component';
-import { ProductFormComponent } from './admin/product-form/product-form.component'
 import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CustomFormsModule } from 'ng2-validation';
 import { TableModule } from 'ngx-easy-table';
-import { ProductsFilterComponent } from './products/products-filter/products-filter.component';
-import { ProductCardComponent } from './shared/components/product-card/product-card.component';
-import { ProductQuantityComponent } from './shared/components/product-quantity/product-quantity.component';
-import { ShippingFormComponent } from './shipping-form/shipping-form.component';
+
+import { environment } from './../environments/environment';
+import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
+import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
+import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { CartSummaryComponent } from './cart-summary/cart-summary.component';
+import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { OrderSuccessComponent } from './order-success/order-success.component';
+import { ProductsFilterComponent } from './products/products-filter/products-filter.component';
+import { ProductsComponent } from './products/products.component';
+import { SharedModule } from './shared/shared.module';
+import { ShippingFormComponent } from './shipping-form/shipping-form.component';
 
 @NgModule({
   declarations: [
@@ -44,8 +41,6 @@ import { CartSummaryComponent } from './cart-summary/cart-summary.component';
     LoginComponent,
     ProductFormComponent,
     ProductsFilterComponent,
-    ProductCardComponent,
-    ProductQuantityComponent,
     ShippingFormComponent,
     CartSummaryComponent
   ],
@@ -57,7 +52,8 @@ import { CartSummaryComponent } from './cart-summary/cart-summary.component';
     NgbModule,
     FormsModule,
     CustomFormsModule,
-    TableModule
+    TableModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
