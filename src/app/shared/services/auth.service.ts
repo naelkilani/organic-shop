@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 import { Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-import { AppUser } from './shared/models/appUser';
+import { AppUser } from '../models/appUser';
 import { of } from 'rxjs';
 
 

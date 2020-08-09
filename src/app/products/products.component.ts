@@ -1,7 +1,7 @@
 import { Cart } from '../shared/models/cart';
-import { CartService } from './../cart.service';
+import { CartService } from '../shared/services/cart.service';
 import { ActivatedRoute } from '@angular/router';
-import { ProductsService } from './../products.service';
+import { ProductsService } from '../shared/services/products.service';
 import { map, switchMap } from 'rxjs/operators';
 import { Observable, of, Subscription } from 'rxjs';
 import { Component } from '@angular/core';
