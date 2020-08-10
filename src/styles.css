@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.css";
 
 /*! Based on Spectre.css v0.4.5 | MIT License | github.com/picturepan2/spectre */
 .ngx-container {
