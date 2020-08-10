@@ -1,6 +1,6 @@
 import { map } from 'rxjs/operators';
-import { Cart } from '../shared/models/cart';
-import { CartService } from '../shared/services/cart.service';
+import { Cart } from '../../../shared/models/cart';
+import { CartService } from '../../../shared/services/cart.service';
 import { Observable } from 'rxjs';
 import { OnInit, Component } from '@angular/core';
 
